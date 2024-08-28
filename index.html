@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barcode Scanner v0.1</title>
+    <title>Barcode Scanner</title>
+    <!-- Ajouter Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
         #video {
             width: 100%;
             max-width: 400px;
             border: 1px solid black;
             position: relative;
+            border-radius: 5px; /* Coins arrondis pour le style */
         }
 
         #frame {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 60%; /* Ajusté pour être plus petit */
-            height: 20%; /* Ajusté pour être plus petit */
+            width: 60%;
+            height: 20%;
             border: 2px dashed red;
             transform: translate(-50%, -50%);
             pointer-events: none;
@@ -25,28 +28,36 @@
 
         #output {
             margin-top: 20px;
-            display: flex;
-            align-items: center;
         }
 
-        #copyButton {
+        #resultText {
+            margin-right: 10px;
+        }
+
+        .btn-copy {
             margin-left: 10px;
-            padding: 5px 10px;
-            cursor: pointer;
+            padding: 5px 15px;
         }
     </style>
 </head>
 <body>
-    <h1>Scan a Barcode</h1>
-    <div style="position: relative;">
-        <video id="video"></video>
-        <div id="frame"></div>
-    </div>
-    <div id="output">
-        <span id="resultText"></span>
-        <button id="copyButton">Copy</button>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Scan a Barcode</h1>
+        <div class="text-center">
+            <div style="position: relative; display: inline-block;">
+                <video id="video" class="img-fluid"></video>
+                <div id="frame"></div>
+            </div>
+        </div>
+        <div id="output" class="text-center mt-3">
+            <span id="resultText" class="lead"></span>
+            <button id="copyButton" class="btn btn-primary btn-copy">Copy</button>
+        </div>
     </div>
 
+    <!-- Ajouter Bootstrap JS et Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/@zxing/library@latest"></script>
     <script src="app.js"></script>
 </body>
