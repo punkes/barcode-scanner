@@ -9,7 +9,20 @@
             width: 100%;
             max-width: 400px;
             border: 1px solid black;
+            position: relative;
         }
+
+        #frame {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 30%;
+            border: 2px dashed red;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
         #output {
             margin-top: 20px;
         }
@@ -17,7 +30,10 @@
 </head>
 <body>
     <h1>Scan a Barcode</h1>
-    <video id="video"></video>
+    <div style="position: relative;">
+        <video id="video"></video>
+        <div id="frame"></div>
+    </div>
     <div id="output"></div>
 
     <script src="https://unpkg.com/@zxing/library@latest"></script>
